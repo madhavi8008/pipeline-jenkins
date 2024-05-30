@@ -8,9 +8,9 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+        stage('Run HTML File') {
             steps {
-                sh 'cp hello-world.html /tmp' // Replace with the actual path
+                sh 'python -m http.server 8082' // Start Python HTTP server on port 8082
             }
         }
     }
