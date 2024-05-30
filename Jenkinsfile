@@ -64,9 +64,9 @@ pipeline {
                     sh '''
                         if command -v python3 &> /dev/null
                         then
-                            nohup python3 -m http.server 8080 --directory /tmp/webserver &
+                            nohup python3 -m http.server 8082 --directory /tmp/webserver &
                         else
-                            $HOME/python3/bin/python3 -m http.server 8080 --directory /tmp/webserver &
+                            $HOME/python3/bin/python3 -m http.server 8082 --directory /tmp/webserver &
                         fi
                     '''
                 }
