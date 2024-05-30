@@ -21,7 +21,7 @@ pipeline {
         
          stage('Run HTML File') {
             steps {
-                sh 'python -m http.server 8082' // Start Python HTTP server on port 8082
+                sh 'python3 -m http.server 8082' // Start Python HTTP server on port 8082
             }
         }
     }
