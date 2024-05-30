@@ -10,7 +10,7 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'cp hello-world.html /var/local' // Replace with the actual path
+                sh 'cp hello-world.html /tmp' // Replace with the actual path
             }
         }
     }
