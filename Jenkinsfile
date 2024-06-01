@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         HTML_FILE = 'hello-world.html' // Replace with your HTML file name
-        LOCAL_PATH = '/tmp/' // Replace with the destination path on the Jenkins server
+        LOCAL_PATH = '/tmp' // Replace with the destination path on the Jenkins server
     }
 
     stages {
