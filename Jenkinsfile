@@ -4,27 +4,20 @@ pipeline {
     environment {
         HTML_FILE = 'hello-world.html' // Replace with your HTML file name
         LOCAL_PATH = '/tmp/' // Replace with the destination path on the Jenkins server
-        PYENV_ROOT = "${WORKSPACE}/.pyenv" // Local path for pyenv installation
-        PATH = "${PYENV_ROOT}/bin:${PATH}" // Add pyenv to PATH
     }
 
     stages {
-        stage('Install pyenv and Python 3') {
+        stage('Install Python 3 if necessary') {
             steps {
                 script {
                     sh '''
-                        if ! command -v pyenv &> /dev/null
+                        if ! command -v python3 &> /dev/null
                         then
-                            echo "pyenv could not be found, installing..."
-                            curl https://pyenv.run | bash
-                            export PATH="$HOME/.pyenv/bin:$PATH"
-                            eval "$(pyenv init --path)"
-                            eval "$(pyenv init -)"
-                            eval "$(pyenv virtualenv-init -)"
-                            pyenv install 3.8.12
-                            pyenv global 3.8.12
+                            echo "Python 3 could not be found, installing..."
+                            sudo apt-get update
+                            sudo apt-get install -y python3
                         else
-                            echo "pyenv is already installed"
+                            echo "Python 3 is already installed"
                         fi
                     '''
                 }
@@ -45,7 +38,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                        nohup ${PYENV_ROOT}/shims/python3 -m http.server 82 --directory ${LOCAL_PATH} &
+                        nohup python3 -m http.server 82 --directory ${LOCAL_PATH} &
                     """
                 }
             }
