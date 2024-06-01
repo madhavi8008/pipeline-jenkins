@@ -4,7 +4,7 @@ pipeline {
     environment {
         HTML_FILE = 'hello-world.html' // Replace with your HTML file name
         LOCAL_PATH = '/tmp' // Replace with the destination path on the Jenkins server
-        SERVER_PORT = 8999 // Port to run the server
+        SERVER_PORT = 9999 // Port to run the server
         BIND_IP = '0.0.0.0' // Bind to all interfaces
     }
 
@@ -38,7 +38,7 @@ pipeline {
             }
         }
 
-        stage('Run HTML file on port 8999') {
+        stage('Run HTML file on port 9999') {
             steps {
                 script {
                     sh """
