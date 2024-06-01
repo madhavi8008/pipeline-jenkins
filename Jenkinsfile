@@ -46,7 +46,7 @@ pipeline {
                         # Kill any process running on the port
                         fuser -k ${SERVER_PORT}/tcp || true
 
-                        // # Start the server
+                        # Start the server
                         nohup python3 -m http.server ${SERVER_PORT} --bind ${BIND_IP} --directory ${LOCAL_PATH} > ${WORKSPACE}/server.log 2>&1 &
                         echo "Started HTTP server on port ${SERVER_PORT} serving ${LOCAL_PATH}"
 
