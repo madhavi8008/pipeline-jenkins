@@ -32,6 +32,7 @@ pipeline {
                     sh """
                         cp ${WORKSPACE}/${HTML_FILE} ${LOCAL_PATH}
                         echo "Copied ${HTML_FILE} to ${LOCAL_PATH}"
+                        chmod 777 ${LOCAL_PATH}/${HTML_FILE}
                     """
                 }
             }
