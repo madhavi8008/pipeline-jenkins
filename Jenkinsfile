@@ -64,17 +64,17 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            script {
-                // Display the server log if it exists
-                sh """
-                    if [ -f ${WORKSPACE}/server.log ]; then
-                        echo "Server Log:"
-                        cat ${WORKSPACE}/server.log
-                    fi
-                """
-            }
-        }
-    }
+    // post {
+    //     always {
+    //         script {
+    //             // Display the server log if it exists
+    //             sh """
+    //                 if [ -f ${WORKSPACE}/server.log ]; then
+    //                     echo "Server Log:"
+    //                     cat ${WORKSPACE}/server.log
+    //                 fi
+    //             """
+    //         }
+    //     }
+    // }
 }
