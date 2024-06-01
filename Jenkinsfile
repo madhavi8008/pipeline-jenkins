@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent { label 'test-node' }
 
     environment {
         HTML_FILE = 'hello-world.html' // Replace with your HTML file name
