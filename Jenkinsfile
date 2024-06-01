@@ -48,7 +48,7 @@ pipeline {
 
                         # Start the server
                         # nohup python3 -m http.server ${SERVER_PORT} --bind ${BIND_IP} --directory ${LOCAL_PATH} > ${WORKSPACE}/server.log 2>&1 &
-                        nohup python3 -m http.server ${SERVER_PORT} --bind ${BIND_IP} --directory ${LOCAL_PATH} > ${WORKSPACE}/server.log 2>&1 < /dev/null &
+                        nohup python3 -m http.server ${SERVER_PORT} --bind ${BIND_IP} --directory ${LOCAL_PATH} > ${WORKSPACE}/server.log 2>&1 < /dev/null & disown
                         echo "Started HTTP server on port ${SERVER_PORT} serving ${LOCAL_PATH}"
 
                         # Verify the server is running
