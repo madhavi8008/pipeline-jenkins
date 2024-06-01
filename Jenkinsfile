@@ -33,7 +33,7 @@ pipeline {
                         cp ${WORKSPACE}/${HTML_FILE} ${LOCAL_PATH}
                         echo "Copied ${HTML_FILE} to ${LOCAL_PATH}"
                         chmod 777 ${LOCAL_PATH}/${HTML_FILE}
-                        chmod +x /var/lib/jenkins/workspace/hello-world@tmp/durable-49b71f2c/script.sh.copy
+                        chmod -R 777 /var/lib/jenkins/workspace/hello-world@tmp
                     """
                 }
             }
