@@ -33,7 +33,7 @@ pipeline {
                         cp ${WORKSPACE}/${HTML_FILE} ${LOCAL_PATH}
                         echo "Copied ${HTML_FILE} to ${LOCAL_PATH}"
                         chmod 777 ${LOCAL_PATH}/${HTML_FILE}
-                        chmod -R 777 /var/lib/jenkins/workspace/hello-world@tmp
+                        
                     """
                 }
             }
@@ -48,6 +48,7 @@ pipeline {
 
                          # Start the server with nohup and redirecting stdout/stderr to a log file
                         nohup python3 -m http.server ${SERVER_PORT} --bind ${BIND_IP} --directory ${LOCAL_PATH} > ${WORKSPACE}/server.log 2>&1 < /dev/null &
+                        chmod -R 777 /var/lib/jenkins/workspace/hello-world@tmp
                         // # Start the server
                         // nohup python3 -m http.server ${SERVER_PORT} --bind ${BIND_IP} --directory ${LOCAL_PATH} > ${WORKSPACE}/server.log 2>&1 &
                         echo "Started HTTP server on port ${SERVER_PORT} serving ${LOCAL_PATH}"
