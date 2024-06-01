@@ -5,7 +5,7 @@ pipeline {
         stage('Checkout') {
             steps {
                 // Checkout the code from your version control system
-                git 'https://github.com/madhavi8008/pipeline-jenkins.git'
+                checkout scm
             }
         }
         
